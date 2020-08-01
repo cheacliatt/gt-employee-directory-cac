@@ -22,7 +22,7 @@ class App extends Component {
   render() {
     return (
       <Wrapper>
-        <Title>Hope this works.</Title>
+        <Title>Buncha Bastards</Title>
         {this.state.users.map((user) => (
           <UserRow
             firstName={user.name.first}
