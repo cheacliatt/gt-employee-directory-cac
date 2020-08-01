@@ -3,7 +3,7 @@ import "./style.css";
 
 function UserRow(props) {
   return (
-    <div className="row d-flex p-2">
+    <div className="row d-flex p-2 bd-highlight">
       <div className="col-sm-2">
         <img
           alt={props.name}
@@ -14,20 +14,20 @@ function UserRow(props) {
       </div>
       <div className="col-sm-2">
         <p>
-          Name: {props.firstName} {props.lastName}
+          {props.firstName} {props.lastName}
         </p>
       </div>
       <div className="col-sm-2">
-        <p>Email: {props.email}</p>
+        <p>{props.email}</p>
       </div>
       <div className="col-sm-2">
         <p>Age: {props.age}</p>
       </div>
       <div className="col-sm-2">
-        <p>Phone: {props.phone}</p>
+        <p>{props.phone}</p>
       </div>
       <div className="col-sm-2">
-        <p>ID: {props.id}</p>
+        <p>{props.id}</p>
       </div>
     </div>
   );
