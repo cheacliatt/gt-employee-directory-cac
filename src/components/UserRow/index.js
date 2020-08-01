@@ -13,7 +13,9 @@ function UserRow(props) {
         />
       </div>
       <div className="col-sm-2">
-  <p>Name: {props.firstName} {props.lastName}</p>
+        <p>
+          Name: {props.firstName} {props.lastName}
+        </p>
       </div>
       <div className="col-sm-2">
         <p>Email: {props.email}</p>

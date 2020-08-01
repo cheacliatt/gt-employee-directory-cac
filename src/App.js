@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Wrapper from "./components/Wrapper";
 import Title from "./components/Title";
 import UserRow from "./components/UserRow";
+import Filter from "./components/Filter";
 import API from "./utils/API";
 
 class App extends Component {
@@ -23,6 +24,7 @@ class App extends Component {
     return (
       <Wrapper>
         <Title>Buncha Bastards</Title>
+        <Filter />
         {this.state.users.map((user) => (
           <UserRow
             firstName={user.name.first}
