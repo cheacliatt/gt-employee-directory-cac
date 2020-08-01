@@ -25,7 +25,8 @@ class App extends Component {
         <Title>Hope this works.</Title>
         {this.state.users.map((user) => (
           <UserRow
-            name={user.name.first}
+            firstName={user.name.first}
+            lastName={user.name.last}
             email={user.email}
             age={user.dob.age}
             phone={user.phone}
