@@ -1,33 +1,28 @@
 import React from "react";
 import "./style.css";
 
-function UserRow(props) {
+function UserHead(props) {
   return (
     <div className="row d-flex p-2 bd-highlight">
       <div className="col-sm-2">
-        <img
-          alt={props.name}
-          className="img-fluid"
-          src={props.src}
-          style={{ margin: "0 auto" }}
-        />
+        <h4>PROFILE PIC</h4>
       </div>
       <div className="col-sm-2">
-        <p>
-          {props.firstName} {props.lastName}
-        </p>
+        <button onClick={props.sortByName}>
+           NAME
+        </button>
       </div>
       <div className="col-sm-2">
-        <p>{props.email}</p>
+        <h4>EMAIL</h4>
       </div>
       <div className="col-sm-2">
-        <p>Age: {props.age}</p>
+        <h4>AGE</h4>
       </div>
       <div className="col-sm-2">
-        <p>{props.phone}</p>
+        <h4>PHONE</h4>
       </div>
     </div>
   );
 }
 
-export default UserRow;
+export default UserHead;
