@@ -11,9 +11,12 @@ class App extends Component {
     super();
 
     this.handleSortByName = this.handleSortByName.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
 
     this.state = {
       users: [],
+      searchUsers: [],
+      search: "",
       sorted: "ascending",
     };
   }
@@ -24,8 +27,32 @@ class App extends Component {
 
   generateRandomUsers = () => {
     API.getRandomUsers()
-      .then((res) => this.setState({ users: res.data.results }))
+      .then((res) =>
+        this.setState({
+          users: res.data.results,
+          searchUsers: res.data.results,
+        })
+      )
       .catch((err) => console.log(err));
+  };
+
+  handleInputChange = (e) => {
+    e.preventDefault();
+    const employeeName = e.target.value;
+
+    const searchUsers = this.state.users.filter((employees) => {
+      const { first: firstName, last: lastName } = employees.name;
+
+      const searchedEmployeesName = `${firstName} ${lastName}`;
+      return searchedEmployeesName
+        .toLowerCase()
+        .includes(employeeName.toLowerCase().trim());
+    });
+
+    this.setState({
+      searchUsers: searchUsers,
+      search: employeeName,
+    });
   };
 
   handleSortByName() {
@@ -54,9 +81,9 @@ class App extends Component {
     return (
       <Wrapper>
         <Title>Buncha Bastards</Title>
-        <Filter />
+        <Filter inputChanged={this.handleInputChange} />
         <UserHead sortByName={this.handleSortByName} />
-        {this.state.users.map((user) => (
+        {this.state.searchUsers.map((user) => (
           <UserRow
             firstName={user.name.first}
             lastName={user.name.last}
