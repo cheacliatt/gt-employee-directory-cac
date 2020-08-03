@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.css";
 
+// This sets up the attributes that we place the API data into, then we map it out based on however many results we receive.
 function UserRow(props) {
   return (
     <div className="row d-flex p-2 bd-highlight">
