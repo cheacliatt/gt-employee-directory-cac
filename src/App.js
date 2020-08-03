@@ -14,6 +14,7 @@ class App extends Component {
 
     this.state = {
       users: [],
+      sorted: "ascending",
     };
   }
 
@@ -30,13 +31,23 @@ class App extends Component {
   handleSortByName() {
     const sortEl = this.state.users;
 
-    const sorted = sortEl.sort((a, b) =>
-      a.name.first > b.name.first ? 1 : -1
-    );
-
-    this.setState({
-      users: sorted,
-    });
+    if (this.state.sorted === "ascending") {
+      const sorted = sortEl.sort((a, b) =>
+        a.name.first > b.name.first ? 1 : -1
+      );
+      this.setState({
+        users: sorted,
+        sorted: "descending",
+      });
+    } else {
+      const sorted = sortEl.sort((a, b) =>
+        a.name.first > b.name.first ? -1 : 1
+      );
+      this.setState({
+        users: sorted,
+        sorted: "ascending",
+      });
+    }
   }
 
   render() {
