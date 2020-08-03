@@ -14,7 +14,7 @@
 ## Description
 This application will keep track of a user's employee directory made with React. The user is able to organize their list of randomly generated employees by ascending and descending the names. The application will also implement a search feature to find employee's by name.
 
-<img src="budgetsh.PNG"/>
+<img src="emdirsh.PNG"/>
 
 ## Installation
 

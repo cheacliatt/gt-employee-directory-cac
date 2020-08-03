@@ -41,6 +41,12 @@ class App extends Component {
   handleInputChange = (e) => {
     const employeeName = e.target.value;
 
+    if(this.state.search === ""){
+      this.setState({
+        users: this.state.users,
+      })
+    }
+
     const searchUsers = this.state.users.filter((employees) => {
       const { first: firstName, last: lastName } = employees.name;
       // Deconstructing the filter to match the characters the user puts into the input field.
@@ -65,7 +71,6 @@ class App extends Component {
         a.name.first > b.name.first ? 1 : -1
       );
       this.setState({
-        users: sorted,
         searchUsers: sorted,
         sorted: "descending",
       });
@@ -74,7 +79,6 @@ class App extends Component {
         a.name.first > b.name.first ? -1 : 1
       );
       this.setState({
-        users: sorted,
         searchUsers: sorted,
         sorted: "ascending",
       });
@@ -84,7 +88,7 @@ class App extends Component {
   render() {
     return (
       <Wrapper>
-        <Title>Buncha Bastards
+        <Title>Employee Directory
           <Filter inputChanged={this.handleInputChange} />
         </Title>
         <UserHead sortByName={this.handleSortByName} />
