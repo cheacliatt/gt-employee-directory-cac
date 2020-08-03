@@ -56,7 +56,7 @@ class App extends Component {
   };
 
   handleSortByName() {
-    const sortEl = this.state.users;
+    const sortEl = this.state.searchUsers;
 
     if (this.state.sorted === "ascending") {
       const sorted = sortEl.sort((a, b) =>
@@ -64,6 +64,7 @@ class App extends Component {
       );
       this.setState({
         users: sorted,
+        searchUsers: sorted,
         sorted: "descending",
       });
     } else {
@@ -72,6 +73,7 @@ class App extends Component {
       );
       this.setState({
         users: sorted,
+        searchUsers: sorted,
         sorted: "ascending",
       });
     }

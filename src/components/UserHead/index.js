@@ -8,9 +8,11 @@ function UserHead(props) {
         <h4>PROFILE PIC</h4>
       </div>
       <div className="col-sm-2">
-        <button onClick={props.sortByName}>
+        <h4 onClick={props.sortByName}>
            NAME
-        </button>
+           <br></br>
+           (click to sort)
+        </h4>
       </div>
       <div className="col-sm-2">
         <h4>EMAIL</h4>
